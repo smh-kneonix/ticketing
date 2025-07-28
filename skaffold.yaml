@@ -1,0 +1,65 @@
+apiVersion: skaffold/v4beta12
+kind: Config
+manifests:
+    rawYaml:
+        - ./infra/k8/*
+deploy:
+    kubectl: {}
+build:
+    local:
+        push: false
+    artifacts:
+        - image: kneonix/auth
+          context: auth
+          sync:
+              manual:
+                  - src: src/**/*.ts
+                    dest: .
+          docker:
+              dockerfile: Dockerfile
+
+        - image: kneonix/client
+          context: client
+          sync:
+              manual:
+                  - src: "**/*.js"
+                    dest: .
+          docker:
+              dockerfile: Dockerfile
+
+        - image: kneonix/ticket
+          context: ticket
+          sync:
+              manual:
+                  - src: src/**/*.ts
+                    dest: .
+          docker:
+              dockerfile: Dockerfile
+
+        - image: kneonix/order
+          context: order
+          sync:
+              manual:
+                  - src: src/**/*.ts
+                    dest: .
+          docker:
+              dockerfile: Dockerfile
+
+        - image: kneonix/expiration
+          context: expiration
+          sync:
+              manual:
+                  - src: src/**/*.ts
+                    dest: .
+          docker:
+              dockerfile: Dockerfile
+
+        - image: kneonix/payment
+          context: payment
+          sync:
+              manual:
+                  - src: src/**/*.ts
+                    dest: .
+          docker:
+              dockerfile: Dockerfile
+

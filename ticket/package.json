@@ -1,0 +1,45 @@
+{
+    "name": "ticket",
+    "version": "1.0.0",
+    "main": "src/index.js",
+    "scripts": {
+        "prestart": "tsc",
+        "start": "tsc --watch & node --watch-path=./ dist/index.js",
+        "start:dev": "node --watch-path=./ dist/index.js & tsc --watch",
+        "test": "jest --runInBand --watch",
+        "test:ci": "jest",
+        "docker:build": "docker build -t ticket .",
+        "docker:run": "docker run -p 3000:3001 ticket",
+        "docker:up": "npm run docker:build && npm run ticket"
+    },
+    "author": "Kneonix",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@kneonix-ticketing/common": "^1.0.27",
+        "axios": "^1.7.9",
+        "body-parser": "^1.20.3",
+        "cookie-parser": "^1.4.7",
+        "express": "^4.21.2",
+        "express-async-errors": "^3.1.1",
+        "express-validator": "^7.2.1",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.12.1",
+        "typescript": "^5.7.3"
+    },
+    "devDependencies": {
+        "@types/cookie-parser": "^1.4.8",
+        "@types/express": "^5.0.0",
+        "@types/express-session": "^1.18.1",
+        "@types/jest": "^29.5.14",
+        "@types/jsonwebtoken": "^9.0.9",
+        "@types/mongoose": "^5.11.96",
+        "@types/node": "^22.13.10",
+        "@types/passport": "^1.0.17",
+        "@types/supertest": "^6.0.2",
+        "jest": "^29.7.0",
+        "mongodb-memory-server": "^10.1.4",
+        "supertest": "^7.1.0",
+        "ts-jest": "^29.2.6"
+    }
+}

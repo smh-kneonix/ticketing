@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: order-depl
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: order
+    template:
+        metadata:
+            labels:
+                app: order
+        spec:
+            containers:
+                - name: order
+                  image: kneonix/order:latest
+                  imagePullPolicy: Never
+                  env:
+                      - name: JWT_KEY
+                        valueFrom:
+                            secretKeyRef:
+                                name: shared-secret
+                                key: JWT_KEY
+                      - name: KAFKA_BROKER_URI
+                        valueFrom:
+                            secretKeyRef:
+                                name: shared-secret
+                                key: KAFKA_BROKER_URI
+                      - name: PORT
+                        value: "3000"
+                      - name: MONGO_URL
+                        value: "mongodb://order-mongo-srv:27017"
+                      - name: EXPIRATION_WINDOW_SECONDS
+                        value: "900"
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: order-clusterip-srv
+spec:
+    selector:
+        app: order
+    ports:
+        - name: order
+          protocol: TCP
+          port: 3000
+          targetPort: 3000
