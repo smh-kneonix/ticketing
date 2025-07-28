@@ -1,4 +1,4 @@
-name: tests-auth
+name: tests-payment
 
 on:
   push:

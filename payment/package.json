@@ -7,6 +7,7 @@
         "start": "tsc --watch & node --watch-path=./ dist/index.js",
         "start:dev": "node --watch-path=./ dist/index.js & tsc --watch",
         "test": "jest --runInBand --watch",
+        "test:ci": "jest",
         "docker:build": "docker build -t payment .",
         "docker:run": "docker run -p 3000:3001 payment",
         "docker:up": "npm run docker:build && npm run payment"
