@@ -3,8 +3,12 @@ name: tests-order
 on:
   push:
     branches: [ "master" ]
+    path:
+      - 'order/**'
   pull_request:
     branches: [ "master" ]
+    path:
+      - 'order/**'
 
 jobs:
   build:
