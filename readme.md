@@ -32,6 +32,16 @@ A **microservices-based ticket booking platform** for shows and concerts. Built 
 - **Bootstrap**
 - JavaScript
 
+## 🤝 Shared NPM Package
+
+This project uses a **locally developed NPM package**, located in the `common/` directory, that contains shared TypeScript code such as:
+- Custom error classes
+- Middleware
+- Request validation
+- Kafka event types and publishers/subscribers
+
+The package is published to NPM and can be installed using the command `npm i @kneonix-ticketing/common`.
+
 
 ## 🚀 Purpose
 
@@ -117,6 +127,8 @@ kubectl apply -f <each-config-file.yaml>
 
 This project is for educational purposes and is open-source.
 Feel free to fork and build upon it!
+
+to see the common package you can check the 
 
 
 ## 👤 Author
