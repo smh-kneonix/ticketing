@@ -128,7 +128,7 @@ kubectl apply -f <each-config-file.yaml>
 This project is for educational purposes and is open-source.
 Feel free to fork and build upon it!
 
-to see the common package you can check the 
+you can access the Postman collection in the `./microservice.postman_collection.json` file and import it into your Postman app.
 
 
 ## 👤 Author

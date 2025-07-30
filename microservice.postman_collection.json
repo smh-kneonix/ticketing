@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "cf2a2f5b-d1f2-4952-b18c-4922c28c0926",
+		"name": "microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23617829"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{userEmail}}\",\r\n    \"password\": \"{{userPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "ticketing.dev/api/users/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{userEmail}}\",\r\n    \"password\": \"{{userPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "ticketing.dev/api/users/signin"
+					},
+					"response": []
+				},
+				{
+					"name": "current-user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "ticketing.dev/api/users/current-user"
+					},
+					"response": []
+				},
+				{
+					"name": "signout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "ticketing.dev/api/users/signout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ticket",
+			"item": [
+				{
+					"name": "create ticket",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"{{ticketTitle}}\",\r\n    \"price\": \"{{ticketPrice}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "ticketing.dev/api/tickets/"
+					},
+					"response": []
+				},
+				{
+					"name": "get all ticket",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "ticketing.dev/api/tickets/"
+					},
+					"response": []
+				},
+				{
+					"name": "get ticket by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "ticketing.dev/api/tickets/:id",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{ticketId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update ticket by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"new name\",\r\n    \"price\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ticketing.dev/api/tickets/:id",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{ticketId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my tickets",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "ticketing.dev/api/tickets/mine"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticketId\" : \"{{ticketId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "ticketing.dev/api/orders/"
+					},
+					"response": []
+				},
+				{
+					"name": "cancell orders",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "ticketing.dev/api/orders/:id",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{orderId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user orders",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "ticketing.dev/api/orders/"
+					},
+					"response": []
+				},
+				{
+					"name": "get order by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "ticketing.dev/api/orders/:id",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{orderId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payment",
+			"item": [
+				{
+					"name": "payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\":\"{{orderId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "ticketing.dev/api/payments/"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "ticketing.dev/api/verify/?Authority={{Authority}}&Status={{PaymentStatus}}",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"verify",
+								""
+							],
+							"query": [
+								{
+									"key": "Authority",
+									"value": "{{Authority}}"
+								},
+								{
+									"key": "Status",
+									"value": "{{PaymentStatus}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "ticketTitle",
+			"value": "test",
+			"type": "default"
+		},
+		{
+			"key": "ticketPrice",
+			"value": "152",
+			"type": "default"
+		},
+		{
+			"key": "userEmail",
+			"value": "hi@gmail.com",
+			"type": "default"
+		},
+		{
+			"key": "userPassword",
+			"value": "Aa123456@#",
+			"type": "default"
+		},
+		{
+			"key": "ticketId",
+			"value": "6834bab35defca179c8f25a9",
+			"type": "default"
+		},
+		{
+			"key": "orderId",
+			"value": "fsfs",
+			"type": "default"
+		},
+		{
+			"key": "Authority",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "PaymentStatus",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
