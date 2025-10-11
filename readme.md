@@ -2,8 +2,7 @@
 
 A **microservices-based ticket booking platform** for shows and concerts. Built as a learning project to dive deep into real-world **Microservices Architecture** with isolated databases, async communication via Kafka, and full containerized orchestration using Kubernetes.
 
-<video src="./preview.mp4" width="50%" height="auto" controls></video>
-
+[![Watch the video](./thumbnail.png)](./preview.mp4)
 
 ## 📚 Project Structure
 
